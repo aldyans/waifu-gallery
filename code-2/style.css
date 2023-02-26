@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body {
+    font-family: 'Permanent Marker', cursive;
+    background-color: rgb(240, 240, 240);
+}
+
+.thumb {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* .full {
+    width: 600px;
+    height: 800px;
+    object-fit: cover;
+} */
+
+h1 {
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin: 50px 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px white;
+}
+
+li span {
+    font-size: 17px;
+}
+
+.container {
+    width: 650px;
+    padding: 30px 10px;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, .3);
+    background-color: white;
+    margin: auto;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.205);
+    position: relative;
+    list-style: none;
+   
+}
+
+.gallery li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: rgba(200, 200, 200, 0.550);
+    position: absolute;
+    text-align: center;
+    line-height: 120px;
+    transition: .2s;
+    top: 0;
+    opacity: 0;
+}
+
+.gallery li a:hover span{
+    opacity: 1;
+}
+
+/* overlay */
+.overlay {
+    position: fixed;
+    z-index: 9999;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, .8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: background-color 1s;
+}
+
+.overlay:target {
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    padding: 70px 10px;
+    background-color: rgb(0, 0, 0, .6);
+}
+
+img.full {
+    max-height: 100%;
+    box-shadow: 2px 2px 10px  rgba(0, 0, 0, 0.64);
+
+}
+
+.overlay:target img {
+    animation: animasiGambar .8s;
+}
+
+.close {
+    display: block;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: baseline;
+    border: 1px solid rgba(255, 255, 255, 0.767);
+    border-radius: 50%;
+    top: 35px;
+    right: 415px;
+    color: white;
+    opacity: 0;
+    transition: 1s;
+    transition-delay: .8s;
+}
+
+.overlay:target .close {
+/*    animation: animasiClose 2.5s ease-in; */
+    opacity: 1;
+}
+
+/* Navigasi */
+.nav {
+    display: block;
+    width: 45px;
+    height: 45px;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 1s , border-top .15s , border-right .15s , border-bottom .15s , border-left .15s;
+}
+
+.nav-pref {
+    border-left: 4px solid rgba(245, 245, 245, 0.5);
+    border-bottom: 4px solid rgba(245, 245, 245, 0.5); 
+}
+
+.nav-next {
+    border-top: 4px solid rgba(245, 245, 245, 0.5);
+    border-right: 4px solid rgba(245, 245, 245, 0.5);
+}
+
+.nav-pref:hover {
+    border-left: 4px solid rgba(255, 255, 255, 0.9);
+    border-bottom: 4px solid rgba(255, 255, 255, 0.9);
+    /* box-shadow: -4px 2px 4px -2px rgba(255, 255, 255, 0.5),
+                -3px 3px 4px -2px rgba(255, 255, 255, 0.5); */
+}
+
+.nav-next:hover {
+    border-right: 4px solid rgba(255, 255, 255, 0.9);
+    border-top: 4px solid rgba(255, 255, 255, 0.9);
+}
+
+.overlay:target .nav {
+    opacity: 1;
+}
+
+/* Animasi */
+@keyframes animasiGambar {
+    0% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes animasiClose {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-10px);
+    }
+
+    80% {
+        transform: translateY(0);
+    }
+
+    90% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
