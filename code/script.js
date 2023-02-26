@@ -7,3 +7,5 @@ button.forEach(element => {
         targetElement.classList.toggle('active');
     });
 });
+
+console.log('coba');
